@@ -4,7 +4,7 @@ import config from "../config.js"
 class UserService{
 
     constructor(){
-        this.model = Factory.get(config.PERSISTENCE)
+        this.model = Factory.get(config.PERSISTENCE) 
     }
 
     getUser = async () => {

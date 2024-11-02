@@ -10,16 +10,16 @@ class Routes{
     }
 
     start(){
-        this.router.get("/prod", this.prodController.getProd.bind(this.controller))
-        this.router.post("/prod", this.prodController.postProd.bind(this.controller))
-        this.router.patch("/prod/:id", this.prodController.patchProd.bind(this.controller))
-        this.router.put("/prod/:id", this.prodController.putProd.bind(this.controller))
-        this.router.delete("/prod/:id", this.prodController.deleteProd.bind(this.controller))
-        this.router.get("/user", this.userController.getUser.bind(this.controller))
-        this.router.post("/user", this.userController.postUser.bind(this.controller))
-        this.router.patch("/user/:id", this.userController.patchUser.bind(this.controller))
-        this.router.put("/user/:id", this.userController.putUser.bind(this.controller))
-        this.router.delete("/user/:id", this.userController.deleteUser.bind(this.controller))
+        this.router.get("/prod", this.prodController.getProd)
+        this.router.post("/prod", this.prodController.postProd)
+        this.router.patch("/prod/:id", this.prodController.patchProd)
+        this.router.put("/prod/:id", this.prodController.putProd)
+        this.router.delete("/prod/:id", this.prodController.deleteProd)
+        this.router.get("/user", this.userController.getUser)
+        this.router.post("/user", this.userController.postUser)
+        this.router.patch("/user/:id", this.userController.patchUser)
+        this.router.put("/user/:id", this.userController.putUser)
+        this.router.delete("/user/:id", this.userController.deleteUser)
         
         return this.router
     }

@@ -12,7 +12,6 @@ class prodMemModel{
     }
     }
 
-
     async postProd(data) {
         try {
             if (this.productos.length === 0) {
