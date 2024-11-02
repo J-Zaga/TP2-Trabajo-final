@@ -32,10 +32,10 @@ class prodController {
 
   deleteProd = async (req, res) => {
     const { id } = req.params
-    const deleteItem = await this.service.deleteProd(id)
-    res.send(deleteItem)
+    const deleteProd = await this.service.deleteProd(id)
+    res.send(deleteProd)
   }
 
 }
 
-export default prodController;
+export default prodController

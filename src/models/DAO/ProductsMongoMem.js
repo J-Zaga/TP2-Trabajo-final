@@ -1,7 +1,7 @@
 import MongoConnection from "../MongoConnection.js"
 import { ObjectId } from "mongodb"
 
-class prodMongoModel{
+class ProdMongoModel{
     constructor(){ 
     }
 
@@ -32,4 +32,4 @@ class prodMongoModel{
     }
 }
 
-export default prodMongoModel
+export default ProdMongoModel
