@@ -3,7 +3,12 @@ import ProdMongoModel from "./productsMongoMem.js"
 import UserMongoModel from "./UsersMongoMem.js"
 
 class Factory {
+    static currentPersistencia
+
     static get(persistencia) {
+        if (persistencia !== this.currentPersistencia){
+            this.instance = null
+        }
         if (this.instance){
             return this.instance
         }else {
@@ -11,6 +16,7 @@ class Factory {
                 case "MEM":
                     console.warn("Persistencia en memoria del servidor.")
                     this.instance = new ProdMemModel()
+                    break
                 case "MONGO":
                     console.warn("Persistencia en MongoDB")
                     this.instance = {
@@ -26,6 +32,7 @@ class Factory {
                 }
                 break
             }
+            this.currentPersistencia = persistencia
             return this.instance
         }
     }
