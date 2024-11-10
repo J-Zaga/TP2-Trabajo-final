@@ -1,6 +1,7 @@
 import ProdMemModel from "./ProductsMemMemory.js"
 import ProdMongoModel from "./productsMongoMem.js"
 import UserMongoModel from "./UsersMongoMem.js"
+//AQUI ESCRIBIÓ SHAR
 
 class Factory {
     static currentPersistencia
