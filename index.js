@@ -1,12 +1,10 @@
 import express from "express"
-import dotenv from "dotenv"
 import colors from "colors"
+import config from "./src/config.js"
 import cors from 'cors'
-import db from "./models/MongoConnection.js"
-import servicesRoutes from "./routes/services.route.js"
-import usersRoutes from "./routes/users.route..js" 
-
-dotenv.config()
+import db from "./src/models/MongoConnection.js"
+import servicesRoutes from "./src/routes/services.route.js"
+import usersRoutes from "./src/routes/users.route..js" 
 
 const app = express()
 
@@ -32,10 +30,8 @@ app.use(cors(corsOptions))
 app.use("/servicios", servicesRoutes)
 app.use("/usuarios", usersRoutes) 
 
-const PORT = process.env.PORT || 4000
+const PORT = config.PORT
 
 app.listen(PORT, () => {
     console.log(colors.blue("El servidor se está ejecutando en el puerto:", colors.blue.bold(PORT)))
 })
-
-console.log(process.env.MONGO_URI)
