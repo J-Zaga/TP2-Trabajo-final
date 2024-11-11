@@ -1,18 +1,41 @@
 import express from "express"
-import Routes from "./routes/routes.js"
-import MongoConnection from "./models/MongoConnection.js"
-import config from "./config.js"
+import dotenv from "dotenv"
+import colors from "colors"
+import cors from 'cors'
+import db from "./models/MongoConnection.js"
+import servicesRoutes from "./routes/services.route.js"
+import usersRoutes from "./routes/users.route..js" 
 
-//Para quien descargue esto, el archivo config no viene incluido en github asique no te va andar si no lo agregas manualmente -Juan
+dotenv.config()
 
 const app = express()
-const PORT = config.PORT
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-app.use("/", new Routes().start())
+db()
 
-await MongoConnection.connect()
-app.listen(PORT, () => console.log(`Server running on: http://localhost:${PORT}`))
-app.on("Error", (err) => console.error(err))
+const whitelist = [process.env.FRONTEND_URL, undefined]
+const corsOptions = {
+    origin: function(origin, callback) {
+        if (whitelist.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error('Error de CORS'))
+        }
+    }
+}
+
+app.use(cors(corsOptions))
+
+// Rutas
+app.use("/servicios", servicesRoutes)
+app.use("/usuarios", usersRoutes) 
+
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT, () => {
+    console.log(colors.blue("El servidor se está ejecutando en el puerto:", colors.blue.bold(PORT)))
+})
+
+console.log(process.env.MONGO_URI)
