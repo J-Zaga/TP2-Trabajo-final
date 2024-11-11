@@ -1,5 +1,5 @@
-import Factory from "../models/DAO/Factory.js";
-import config from "../config.js";
+import Factory from "../models/DAO/Factory.js"
+import config from "../config.js"
 
 class ServicesService {
     constructor() {
@@ -8,7 +8,7 @@ class ServicesService {
 
     getServices = async () => {
         const services = await this.model.Services.find()
-        return services;
+        return services
     }
 
     getServiceById = async (id) => {
@@ -18,17 +18,17 @@ class ServicesService {
 
     postService = async (data) => {
         const newService = await this.model.Services.create(data)
-        return newService;
+        return newService
     }
 
     patchService = async (id, data) => {
         const updatedService = await this.model.Services.updateOne({ _id: id }, { $set: data })
-        return updatedService;
+        return updatedService
     }
     
     putService = async (id, data) => {
         const updatedService = await this.model.Services.replaceOne({ _id: id }, data)
-        return updatedService;
+        return updatedService
     }
 
     deleteService = async (id) => {
@@ -37,4 +37,4 @@ class ServicesService {
     }
 }
 
-export default ServicesService;
+export default ServicesService
