@@ -1,5 +1,5 @@
 import UserService from "../services/users.service.js"
-import { validateObjectId, handleNotFoundError } from "../utils/index.js"
+import { validateObjectId, handleNotFoundError } from "../utils/mongooseValidation.js"
 
 const userService = new UserService()
 

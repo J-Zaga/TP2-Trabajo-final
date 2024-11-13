@@ -13,19 +13,6 @@ app.use(express.json())
 
 db()
 
-const whitelist = [process.env.FRONTEND_URL, undefined]
-const corsOptions = {
-    origin: function(origin, callback) {
-        if (whitelist.includes(origin)) {
-            callback(null, true)
-        } else {
-            callback(new Error('Error de CORS'))
-        }
-    }
-}
-
-app.use(cors(corsOptions))
-
 // Rutas
 app.use("/servicios", servicesRoutes)
 app.use("/usuarios", usersRoutes) 
