@@ -1,7 +1,6 @@
 import express from "express"
 import colors from "colors"
 import config from "./src/config.js"
-import cors from 'cors'
 import db from "./src/models/MongoConnection.js"
 import servicesRoutes from "./src/routes/services.route.js"
 import usersRoutes from "./src/routes/users.route..js" 
