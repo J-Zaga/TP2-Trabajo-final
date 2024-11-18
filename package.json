@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "watch": "node --watch .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/test/services.integration.test.js src/test/users.integration.test.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +18,11 @@
     "express": "^4.21.1",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "supertest": "^7.0.0"
   }
 }

@@ -1,16 +1,22 @@
+import ServicesController from "../controllers/services.Controller.js"
 import express from "express"
-import { createService, getServices, getServiceById, patchService, putService, deleteService } from "../controllers/services.controller.js"
 
-const router = express.Router()
+class ServicesRoutes {
+    constructor() {
+        this.router = express.Router()
+        this.controller = new ServicesController()
+    }
 
-router.route('/')
-    .post(createService)
-    .get(getServices)
+    start() {
+        this.router.get("/", this.controller.getServices)
+        this.router.post("/", this.controller.createService)
+        this.router.get("/:id", this.controller.getServiceById)
+        this.router.put("/:id", this.controller.putService)
+        this.router.patch("/:id", this.controller.patchService)
+        this.router.delete("/:id", this.controller.deleteService)
 
-router.route('/:id')
-    .get(getServiceById)
-    .put(putService)
-    .patch(patchService)
-    .delete(deleteService)
+        return this.router
+    }
+}
 
-export default router 
+export default ServicesRoutes

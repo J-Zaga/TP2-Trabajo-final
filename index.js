@@ -2,8 +2,8 @@ import express from "express"
 import colors from "colors"
 import config from "./src/config.js"
 import db from "./src/models/MongoConnection.js"
-import servicesRoutes from "./src/routes/services.route.js"
-import usersRoutes from "./src/routes/users.route..js" 
+import ServicesRoutes from "./src/routes/services.route.js"
+import UsersRoutes from "./src/routes/users.route..js" 
 
 const app = express()
 
@@ -13,8 +13,8 @@ app.use(express.json())
 db()
 
 // Rutas
-app.use("/servicios", servicesRoutes)
-app.use("/usuarios", usersRoutes) 
+app.use("/servicios", new ServicesRoutes().start())
+app.use("/usuarios", new UsersRoutes().start()) 
 
 const PORT = config.PORT
 

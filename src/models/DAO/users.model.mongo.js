@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
         unique: true,
         trim: true
     },
-    contraseña: {
+    contrasenia: {
         type: String,
         required: true,
         trim: true
@@ -16,16 +16,6 @@ const userSchema = mongoose.Schema({
         type: String,
         enum: ['usuario', 'administrador', 'prestador'],
         default: 'usuario'
-    },
-    serviciosComprados: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Services'
-        }
-    ],
-    fechaCreacion: {
-        type: Date,
-        default: Date.now
     }
 })
 const User = mongoose.model('User', userSchema)
